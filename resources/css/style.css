@@ -82,7 +82,7 @@ a:hover {
     /* Gives that scrolling effect as the typing happens */
     letter-spacing: .15em;
     /* Adjust as needed */
-    animation: typing 3.5s steps(40),
+    animation: typing 3.5s steps(50),
     blink-caret .5s step-end infinite;
 }
 
@@ -257,7 +257,7 @@ a:hover {
 
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1224px) {
     .masthead {
         height: 100%;
         padding: 0;
@@ -269,6 +269,29 @@ a:hover {
         font-size: 30px;
     }
 }
+
+
+
+@media (min-width: 768px) {
+    .masthead {
+        height: 75%;
+        padding: 0;
+    }
+    .masthead .intro-body .brand-heading {
+        font-size: 100px;
+        margin-top: 25%;
+    }
+    .masthead .intro-body .intro-text {
+        font-size: 25px;
+
+    }
+
+
+}
+
+
+
+
 
 .btn-circle {
     font-size: 26px;
