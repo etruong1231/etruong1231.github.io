@@ -813,6 +813,9 @@ textarea {
         width: 50px;
 
     }
+    .social {
+        margin-right: 5%;
+    }
 }
 
 @media (min-width: 768px) {
@@ -832,7 +835,7 @@ textarea {
         font-size: 75px;
     }
     .social {
-        margin-right:4%;
+        margin-right:5%;
     }
 
 
