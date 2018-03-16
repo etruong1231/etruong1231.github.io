@@ -831,6 +831,9 @@ textarea {
     .content-section h1 {
         font-size: 75px;
     }
+    .social {
+        margin-right:4%;
+    }
 
 
 }
@@ -862,5 +865,7 @@ textarea {
         top: 45px;
         width: 50px;
 
+    }.social {
+        margin-right: 4%%;
     }
 }
