@@ -647,25 +647,25 @@ textarea {
     border: 1px solid #ccc;
 }
 
-@media (min-width:350px) {
+@media (min-width:320px) {
     .masthead {
         height: 100%;
         padding: 0;
     }
     .masthead .intro-body .brand-heading {
-        font-size: 50px;
+        font-size: 40px;
         margin-top: 25%;
     }
     .masthead .intro-body .intro-text {
-        font-size: 19px;
+        font-size: 13px;
 
     }
     .content-section p,
     li {
-        font-size: 13px;
+        font-size: 10px;
     }
     .content-section h1 {
-        font-size: 50px;
+        font-size: 30px;
     }
     .content-section h1::after,
     .content-section h1::before {
@@ -673,9 +673,112 @@ textarea {
         position: absolute;
         height: 5px;
         border-top: 3px solid black;
-        top: 30px;
+        top: 15px;
         width: 50px;
 
+    }
+    h2 {
+        font-size: 20px;
+    }
+    label {
+        margin-left: 2%;
+    }
+    .contact-input {
+        width: 45%;
+        margin-left: 2%;
+    }
+    .email-input,
+    textarea {
+        width: 95%;
+    }
+    footer p {
+        font-size: 15px;
+    }
+    .fa {
+        font-size: 25px;
+
+    }
+    .social {
+        margin-right: 15%;
+    }
+    footer {
+        padding: 0;
+        margin: 0;
+    }
+    footer .navbar-brand {
+        font-size: 20px;
+        margin-top: -20px
+    }
+    .btn-primary {
+        margin-right: 10px;
+    }
+}
+
+
+@media (min-width:380px) {
+    .masthead {
+        height: 100%;
+        padding: 0;
+    }
+    .masthead .intro-body .brand-heading {
+        font-size: 40px;
+        margin-top: 25%;
+    }
+    .masthead .intro-body .intro-text {
+        font-size: 14px;
+
+    }
+    .content-section p,
+    li {
+        font-size: 13px;
+    }
+    .content-section h1 {
+        font-size: 30px;
+    }
+    .content-section h1::after,
+    .content-section h1::before {
+        content: "";
+        position: absolute;
+        height: 5px;
+        border-top: 3px solid black;
+        top: 15px;
+        width: 50px;
+
+    }
+    h2 {
+        font-size: 20px;
+    }
+    label {
+        margin-left: 2%;
+    }
+    .contact-input {
+        width: 45%;
+        margin-left: 2%;
+    }
+    .email-input,
+    textarea {
+        width: 95%;
+    }
+    footer p {
+        font-size: 15px;
+    }
+    .fa {
+        font-size: 25px;
+
+    }
+    .social {
+        margin-right: 15%;
+    }
+    footer {
+        padding: 0;
+        margin: 0;
+    }
+    footer .navbar-brand {
+        font-size: 20px;
+        margin-top: -20px
+    }
+    .btn-primary {
+        margin-right: 10px;
     }
 }
 
@@ -718,7 +821,7 @@ textarea {
         padding: 0;
     }
     .masthead .intro-body .brand-heading {
-        font-size: 70px;
+        font-size: 80px;
         margin-top: 25%;
     }
     .masthead .intro-body .intro-text {
