@@ -904,5 +904,16 @@ textarea {
     }
     .social {
         margin-right: 4%;
+        margin: 3% 0 3% 0;
+    }
+    footer {
+        padding: 5px 0 10px 0;
+    }
+    footer .navbar-brand {
+        font-size: 50px;
+        margin-top: -20px
+    }
+    .fa {
+        font-size: 35px;
     }
 }
