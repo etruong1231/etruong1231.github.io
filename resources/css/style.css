@@ -31,17 +31,9 @@ p {
     margin: 0 0 25px;
 }
 
-@media (min-width: 768px) {
-    p {
-        font-size: 18px;
-        line-height: 1.6;
-        margin: 0 0 35px;
-    }
-}
 
 a {
     -webkit-transition: all 0.2s ease-in-out;
-    -moz-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;
     color: #42DCA3;
 }
@@ -62,10 +54,12 @@ a:hover {
 }
 
 .grow {
+    -webkit-transition: all .2s ease-in-out;
     transition: all .2s ease-in-out;
 }
 
 .grow:hover {
+    -webkit-transform: scale(1.1);
     transform: scale(1.1);
 }
 
@@ -82,11 +76,22 @@ a:hover {
     /* Gives that scrolling effect as the typing happens */
     letter-spacing: .15em;
     /* Adjust as needed */
-    animation: typing 3.5s steps(55,End),
+    -webkit-animation: typing 3.5s steps(55),
+    blink-caret .5s step-end infinite;
+    animation: typing 3.5s steps(55),
     blink-caret .5s step-end infinite;
 }
 
 /* The typing effect */
+
+@-webkit-keyframes typing {
+    from {
+        width: 0
+    }
+    to {
+        width: 55%
+    }
+}
 
 @keyframes typing {
     from {
@@ -98,6 +103,16 @@ a:hover {
 }
 
 /* The typewriter cursor effect */
+
+@-webkit-keyframes blink-caret {
+    from,
+    to {
+        border-color: transparent
+    }
+    55% {
+        border-color: orange;
+    }
+}
 
 @keyframes blink-caret {
     from,
@@ -137,8 +152,9 @@ a:hover {
 
 #mainNav a {
     color: white;
-    font-size: 20px;
+    font-size: 15px;
     border: none;
+    -webkit-transition: border-bottom 0.3s, color 0.3s;
     transition: border-bottom 0.3s, color 0.3s;
 
 }
@@ -159,7 +175,6 @@ a:hover {
 
 #mainNav .navbar-nav .nav-item {
     -webkit-transition: background 0.3s ease-in-out;
-    -moz-transition: background 0.3s ease-in-out;
     transition: background 0.3s ease-in-out;
     margin-right: 15px;
 
@@ -177,31 +192,6 @@ a:hover {
     background-color: transparent;
 }
 
-@media (min-width: 992px) {
-    #mainNav {
-        padding-top: 20px;
-        padding-bottom: 20px;
-        -webkit-transition: background 0.3s ease-in-out, padding-top 0.3s ease-in-out, padding-bottom 0.3s;
-        -moz-transition: background 0.3s ease-in-out, padding-top 0.3s ease-in-out, padding-bottom 0.3s;
-        transition: background 0.3s ease-in-out, padding-top 0.3s ease-in-out, padding-bottom 0.3s;
-        letter-spacing: 1px;
-        border-bottom: none;
-        background: transparent;
-    }
-    #mainNav.navbar-shrink {
-        padding-top: 10px;
-        padding-bottom: 10px;
-        background-color: rgba(128, 128, 128, 0.6);
-
-    }
-    #mainNav .nav-link.active {
-        outline: none;
-        background-color: rgba(105, 105, 105, 0.54);
-    }
-    #mainNav .nav-link.active:hover {
-        color: white;
-    }
-}
 
 .masthead {
     display: table;
@@ -210,10 +200,8 @@ a:hover {
     padding: 200px 0;
     text-align: center;
     color: white;
+    background: -webkit-gradient( linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.5))), url("../img/intro-bg.jpg") no-repeat bottom center scroll;
     background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/intro-bg.jpg") no-repeat bottom center scroll;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
     background-size: cover;
 
 }
@@ -224,7 +212,7 @@ a:hover {
 }
 
 .masthead .intro-body .brand-heading {
-    font-size: 30px;
+    font-size: 100px;
 }
 
 .masthead .intro-body .intro-text {
@@ -239,9 +227,8 @@ a:hover {
 
 }
 
-
 .masthead .intro-body p {
-    width: 50%;
+    width: 55%;
 
 }
 
@@ -267,7 +254,6 @@ a:hover {
     margin-top: 15px;
     line-height: 45px;
     -webkit-transition: background 0.3s ease-in-out;
-    -moz-transition: background 0.3s ease-in-out;
     transition: background 0.3s ease-in-out;
     color: white;
     border: 2px solid white;
@@ -315,7 +301,7 @@ a:hover {
 .content-section .header {
     display: inline-block;
     position: relative;
-    padding: 0 15px;
+    padding: 0 5px;
     color: #22A39F;
 }
 
@@ -423,16 +409,17 @@ a:hover {
     width: 100%;
     height: auto;
     -webkit-transform: scale(1.15);
-    -ms-transform: scale(1.15);
     transform: scale(1.15);
     -webkit-transition: -webkit-transform 0.5s, opacity 0.5s;
+    -webkit-transition: opacity 0.5s, -webkit-transform 0.5s;
+    transition: opacity 0.5s, -webkit-transform 0.5s;
     transition: transform 0.5s, opacity 0.5s;
+    transition: transform 0.5s, opacity 0.5s, -webkit-transform 0.5s;
 }
 
 .showcase-photo img:hover {
     opacity: 1;
     -webkit-transform: scale(1.03);
-    -ms-transform: scale(1.03);
     transform: scale(1.03);
 }
 
@@ -441,7 +428,6 @@ a:hover {
     font-family: 'Cabin', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-weight: 400;
     -webkit-transition: all 0.3s ease-in-out;
-    -moz-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
     text-transform: uppercase;
     border-radius: 0;
@@ -530,6 +516,10 @@ footer p {
     visibility: hidden;
 }
 
+img::-moz-selection {
+    background: transparent;
+}
+
 img::selection {
     background: transparent;
 }
@@ -603,7 +593,7 @@ footer p {
 
 .social {
     list-style: none;
-    margin-right: 4%;
+    margin-right:5%;
 }
 
 .social .icons {
@@ -626,6 +616,7 @@ footer .navbar-brand {
     padding: 7.5px 12px 7.5px 8px;
     margin-right: 0;
     color: white;
+    -webkit-transition: border-bottom 0.3s, color 0.3s;
     transition: border-bottom 0.3s, color 0.3s;
     margin-bottom: 10px;
 
@@ -648,222 +639,169 @@ textarea {
     border: 1px solid #ccc;
 }
 
-@media (min-width:319px) {
-    .masthead {
-        height: 100%;
-        padding: 0;
-    }
+
+@media only screen and (min-width: 320px){
     .masthead .intro-body .brand-heading {
-        font-size: 35px;
-        margin-top: 25%;
-    }
-    .masthead .intro-body .intro-text {
-        font-size: 11px;
-        width: 35%;
-
-    }
-    .content-section p,
-    li {
-        font-size: 10px;
-    }
-    .content-section h1 {
-        font-size: 30px;
-    }
-    .content-section h1::after,
-    .content-section h1::before {
-        content: "";
-        position: absolute;
-        height: 5px;
-        border-top: 3px solid black;
-        top: 15px;
-        width: 50px;
-
-    }
-    h2 {
-        font-size: 20px;
-    }
-    label {
-        margin-left: 2%;
-    }
-    .contact-input {
-        width: 45%;
-        margin-left: 2%;
-    }
-    .email-input,
-    textarea {
-        width: 95%;
-    }
-    footer p {
-        font-size: 15px;
-    }
-    .fa {
-        font-size: 25px;
-
-    }
-    .social {
-        margin-right: 15%;
-    }
-    footer {
-        padding: 0;
-        margin: 0;
-    }
-    footer .navbar-brand {
-        font-size: 20px;
-        margin-top: -20px
-    }
-    .btn-primary {
-        margin-right: 10px;
-    }
-}
-
-
-@media (min-width:380px) {
-    .masthead {
-        height: 100%;
-        padding: 0;
-    }
-    .masthead .intro-body .brand-heading {
-        font-size: 40px;
-        margin-top: 25%;
-    }
-    .masthead .intro-body .intro-text {
-        font-size: 14px;
-        width:40%
-
-    }
-    .content-section p,
-    li {
-        font-size: 13px;
-    }
-    .content-section h1 {
-        font-size: 30px;
-    }
-    .content-section h1::after,
-    .content-section h1::before {
-        content: "";
-        position: absolute;
-        height: 5px;
-        border-top: 3px solid black;
-        top: 15px;
-        width: 50px;
-
-    }
-    h2 {
-        font-size: 20px;
-    }
-    label {
-        margin-left: 2%;
-    }
-    .contact-input {
-        width: 45%;
-        margin-left: 2%;
-    }
-    .email-input,
-    textarea {
-        width: 95%;
-    }
-    footer p {
-        font-size: 15px;
-    }
-    .fa {
-        font-size: 25px;
-
-    }
-    .social {
-        margin-right: 11%;
-    }
-    footer {
-        padding: 0;
-        margin: 0;
-    }
-    footer .navbar-brand {
-        font-size: 20px;
-        margin-top: -20px
-    }
-    .btn-primary {
-        margin-right: 10px;
-    }
-}
-
-
-@media (min-width: 525px) {
-    .masthead {
-        height: 100%;
-        padding: 0;
-    }
-    .masthead .intro-body .brand-heading {
-        font-size: 65px;
-        margin-top: 25%;
-    }
-    .masthead .intro-body .intro-text {
-        font-size: 20px;
-        width:55%
-
-    }
-    .content-section p,
-    li {
-        font-size: 14px;
-    }
-    .content-section h1 {
         font-size: 50px;
     }
+
+    .masthead .intro-body .intro-text {
+        font-size: 15px;
+        margin-top: -5%;
+        font-weight: 400;
+
+    }
+    .masthead .intro-body p {
+        width: 55%;
+
+    }
+    .col-lg-6{
+        width:100%;
+    }
+    .contact-input{
+        width:45%;
+        margin-left: 2%;
+    }
+    .email-input, textarea{
+        width: 95%;
+    }
+    label{
+        margin-left:2%
+    }
+    .btn-primary{
+        margin-right:3%;
+    }.content-section h1 {
+        font-size: 40px;
+    }
+    .content-section p {
+        font-size: 17px;
+        margin-top: -25px;}
+    .content-section h2 {
+        font-size: 25px;
+        margin-top: -25px;
+    }
     .content-section h1::after,
     .content-section h1::before {
         content: "";
         position: absolute;
         height: 5px;
         border-top: 3px solid black;
-        top: 30px;
-        width: 50px;
+        top: 23px;
+        width: 20px;
+
     }
-    .social {
-        margin-right: 9%;
+    #aboutMe h2{
+        margin-top:5px;
+    }
+    #aboutMe p{
+        font-size:12px;
+    }
+    #aboutMe ul li{
+        font-size:1rem;
     }
 
 }
 
-@media (min-width: 768px) {
-    .masthead {
-        height: 100%;
-        padding: 0;
-    }
+}
+@media only screen and (min-width: 440px){
     .masthead .intro-body .brand-heading {
-        font-size: 80px;
-        margin-top: 25%;
+        font-size: 53px;
     }
-    .masthead .intro-body .intro-text {
-        font-size: 25px;
-        width:55%
 
+    .masthead .intro-body .intro-text {
+        font-size: 17px;
+        margin-top: -5%;
+        font-weight: 400;
+
+    }
+    .masthead .intro-body p {
+        width: 55%;
+
+    }
+    #aboutMe p, #aboutMe ul li{
+        font-size:15px;
+    }
+    .col-lg-6{
+        width:100%;
+    }
+    .contact-input{
+        width:45%;
+        margin-left: 2%;
+    }
+    .email-input, textarea{
+        width: 95%;
+    }
+    label{
+        margin-left:2%
+    }
+    .btn-primary{
+        margin-right:3%;
     }
     .content-section h1 {
-        font-size: 75px;
+        font-size: 40px;
     }
-    .social {
-        margin-right: 6%;
+    .content-section p {
+        font-size: 15px;
+        margin-top: -25px;}
+    .content-section h2 {
+        font-size: 19px;
+        margin-top: -25px;
     }
-    h2 {
-        font-size: 25px;
-    }
-}
+    .content-section h1::after,
+    .content-section h1::before {
+        content: "";
+        position: absolute;
+        height: 5px;
+        border-top: 3px solid black;
+        top: 23px;
+        width: 20px;
 
-@media (min-width: 1024px) {
-    .masthead {
-        height: 100%;
     }
+    
+
+}
+@media only screen and (min-width: 500px){
     .masthead .intro-body .brand-heading {
-        font-size: 80px;
+        font-size: 60px;
     }
+
     .masthead .intro-body .intro-text {
-        font-size: 25px;
-        width:55%;
-    }
-    .content-section p,
-    li {
         font-size: 20px;
+        margin-top: -5%;
+        font-weight: 400;
+
     }
-    .content-section h1 {
-        font-size: 75px;
+    .masthead .intro-body p {
+        width: 55%;
+
+    }
+    #aboutMe p, #aboutMe ul li{
+        font-size:15px;
+    }
+    .col-lg-6{
+        width:100%;
+    }
+    .contact-input{
+        width:45%;
+        margin-left: 2%;
+    }
+    .email-input, textarea{
+        width: 95%;
+    }
+    label{
+        margin-left:2%
+    }
+    .btn-primary{
+        margin-right:3%;
+    }.content-section h1 {
+        font-size: 71px;
+    }
+    .content-section p {
+        font-size: 15px;
+        margin-top: -25px;}
+    .content-section h2 {
+        font-size: 40px;
+        margin-top: -25px;
     }
     .content-section h1::after,
     .content-section h1::before {
@@ -872,55 +810,125 @@ textarea {
         height: 5px;
         border-top: 3px solid black;
         top: 45px;
-        width: 50px;
+        width: 30px;
 
     }
-    .social {
-        margin-right: 5%;
+    #interest p{
+        font-size:25px;
     }
+
+    
+
+}
+
+@media only screen and (min-width: 768px){
+    .masthead .intro-body .brand-heading {
+        font-size: 80px;
+    }
+
+    .masthead .intro-body .intro-text {
+        font-size: 29px;
+        margin-top: -5%;
+        font-weight: 400;
+
+    }
+
+
+    .masthead .intro-body p {
+        width: 55%;
+
+    }
+    #aboutMe p, #aboutMe ul li{
+        font-size:15px;
+    }
+    .col-lg-6{
+        width:100%;
+    }
+    .contact-input{
+        width:45%;
+        margin-left: 2%;
+    }
+    .email-input, textarea{
+        width: 95%;
+    }
+    label{
+        margin-left:2%
+    }
+    .btn-primary{
+        margin-right:3%;
+    }
+    
+
+}
+@media only screen and (min-width: 990px) {
+    #mainNav {
+        padding-top: 20px;
+        padding-bottom: 20px;
+        -webkit-transition: background 0.3s ease-in-out, padding-top 0.3s ease-in-out, padding-bottom 0.3s;
+        transition: background 0.3s ease-in-out, padding-top 0.3s ease-in-out, padding-bottom 0.3s;
+        letter-spacing: 1px;
+        border-bottom: none;
+        background: transparent;
+    }
+    #mainNav.navbar-shrink {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        background-color: rgba(128, 128, 128, 0.6);
+
+    }
+    #mainNav .nav-link.active {
+        outline: none;
+        background-color: rgba(105, 105, 105, 0.54);
+    }
+    #mainNav .nav-link.active:hover {
+        color: white;
+    }
+    .masthead .intro-body .brand-heading {
+        font-size: 75px;
+    }
+
+    .masthead .intro-body .intro-text {
+        font-size: 25px;
+        margin-top: -5%;
+        font-weight: 400;
+
+    }
+    .masthead .intro-body p {
+        width: 55%;
+
+    }
+
 }
 
 
-@media (min-width: 1224px) {
-    .masthead {
-        height: 100%;
-    }
+
+@media only screen and (min-width: 1220px){
     .masthead .intro-body .brand-heading {
         font-size: 100px;
     }
+
     .masthead .intro-body .intro-text {
         font-size: 30px;
-        width: 55%;
-    }
-    .content-section p,
-    li {
-        font-size: 20px;
-    }
-    .content-section h1 {
-        font-size: 75px;
-    }
-    .content-section h1::after,
-    .content-section h1::before {
-        content: "";
-        position: absolute;
-        height: 5px;
-        border-top: 3px solid black;
-        top: 45px;
-        width: 50px;
+        margin-top: -5%;
+        font-weight: 400;
 
     }
-    .social {
-        margin-right: 4%;
-        margin: 3% 0 3% 0;
+    .masthead .intro-body p {
+        width: 55%;
+
     }
-    footer {
-        padding: 5px 0 10px 0;
+    #aboutMe p{
+        font-size:18px;
     }
-    footer .navbar-brand {
-        font-size: 50px;
-        margin-top: -20px
+     #aboutMe p, #aboutMe ul li{
+        font-size:18px;
     }
-    .fa {
-        font-size: 35px;
+    #aboutMe ul{
+        margin-top:5%;
     }
+
+
 }
+
+
+
