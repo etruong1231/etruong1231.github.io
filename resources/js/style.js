@@ -64,7 +64,7 @@
     }
 
     if (is_safari || is_windows){
-      $('body').css('-webkit-text-stroke', '0.5px');
+      $('.masthead .intro-body .intro-text').css('-webkit-text-stroke', '0.5px');
     }
 
 
