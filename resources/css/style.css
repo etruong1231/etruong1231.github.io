@@ -82,7 +82,7 @@ a:hover {
     /* Gives that scrolling effect as the typing happens */
     letter-spacing: .15em;
     /* Adjust as needed */
-    animation: typing 3.5s steps(50),
+    animation: typing 3.5s steps(55,End),
     blink-caret .5s step-end infinite;
 }
 
@@ -93,7 +93,7 @@ a:hover {
         width: 0
     }
     to {
-        width: 50%
+        width: 55%
     }
 }
 
@@ -104,7 +104,7 @@ a:hover {
     to {
         border-color: transparent
     }
-    50% {
+    55% {
         border-color: orange;
     }
 }
